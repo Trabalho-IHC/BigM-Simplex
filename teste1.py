@@ -10,7 +10,7 @@ for l in range(0, L):
 
 for l in range(0, L):
     for c in range(0, C):
-        print(f'[{matriz[l][c]:^5}]', end='')
+        print(f'[{matriz[l][c]:^9}]', end='')
     print()
 
 #achar posicao do maior numero
@@ -28,7 +28,10 @@ mCol = maior_coluna + 1
 print('linha do maior: {}\ncoluna do maior: {}'.format(mLin, mCol))
 bigM = matriz[maior_linha][maior_coluna]
 
-#[2][1] = [2][1] - matriz[maior_linha][maior_coluna] * [1][1]
-#matriz[maior_linha][maior_coluna] = matriz[maior_linha][maior_coluna] - matriz[maior_linha][maior_coluna] * [1][4]
+matriz[2][1] = matriz[2][1] - matriz[maior_linha][maior_coluna] * matriz[1][1]
+matriz[maior_linha][maior_coluna] -= matriz[maior_linha][maior_coluna] * [1][4]
 
-
+for l in range(0, L):
+    for c in range(0, C):
+        print(f'[{matriz[l][c]:^9}]', end='')
+    print()
