@@ -1,3 +1,9 @@
+#TENTAR FAZER FUNCAO Q IMPRIME MATRIZ
+# def printarMatriz(L, C, matriz):
+#     for l in range(0, L):
+#         for c in range(0, C):
+#             print(f'[{matriz[l][c]:^13}]', end='')
+#     print()
 
 matriz = []
 L = int(input("Digite o número de linhas:"))
@@ -11,9 +17,9 @@ for l in range(0, L):
 
 for l in range(0, L):
     for c in range(0, C):
-        print(f'[{matriz[l][c]:^15}]', end='')
+        print(f'[{matriz[l][c]:^13}]', end='')
     print()
-
+print("\n-------------------------------\n")
 #achar posicao do maior numero
 maior_linha = 0
 maior_coluna = 0
@@ -26,37 +32,39 @@ for lin in range(L):
             maior_coluna = col
 mLin = maior_linha + 1
 mCol = maior_coluna + 1
-print('linha do maior: {}\ncoluna do maior: {}'.format(mLin, mCol))
+#print('linha do maior: {}\ncoluna do maior: {}'.format(mLin, mCol))
 bigM = matriz[maior_linha][maior_coluna]
 
-#matriz[2][1] = matriz[2][1] - bigM * matriz[1][1]
-#matriz[maior_linha][maior_coluna] -= bigM * matriz[1][4]
-#matriz[2][c] = matriz[2][c] - bigM * matriz[1][c]
-
-
 for c in range(0, C):
-    matriz[2][c] = matriz[2][c] - bigM * matriz[1][c]
+    matriz[2][c] = int(matriz[2][c] - bigM * matriz[1][c])
 
 bigM = 0
 bigM = matriz[2][1]
 
 for l in range(0, L):
     for c in range(0, C):
-        print(f'[{matriz[l][c]:^9}]', end='')
+        print(f'[{matriz[l][c]:^13}]', end='')
     print()
-print("////////////////////////////////////////////")
 
-numQueEuEsqueciONOME1 = matriz[1][1]
-numQueEuEsqueciONOME2 = matriz[2][1] 
+print("\n-------------------------------\n")
+
+celulaTravadaL1 = matriz[1][1]
+celulaTravadaL2 = matriz[2][1] 
+celulaTravadaL3 = matriz[0][1]
 
 for c in range(0, C):
-    matriz[1][c] = matriz[1][c] / numQueEuEsqueciONOME1
-    matriz[0][c] = matriz[0][c] - matriz[0][1] * matriz[1][0]
-    matriz[2][c] = matriz[2][c] - numQueEuEsqueciONOME2 * matriz[1][c]
+    matriz[1][c] = round(matriz[1][c] / celulaTravadaL1, 1)
+    matriz[0][c] = round(matriz[0][c] - celulaTravadaL3 * matriz[1][c], 1)
+    matriz[2][c] = round(matriz[2][c] - celulaTravadaL2 * matriz[1][c], 1)
    
    
 for l in range(0, L):
     for c in range(0, C):
-        round(matriz[l][c], 2)
-        print(f'[{matriz[l][c]:^9}]', end='')
+        print(f'[{matriz[l][c]:^13}]', end='')
     print()
+#printarMatriz(L, C, matriz)
+
+print("\n-------------------------------\n")
+
+
+

@@ -54,9 +54,8 @@ for c in range(0, C):
     matriz[0][c] = matriz[0][c] - matriz[0][1] * matriz[1][0]
     matriz[2][c] = matriz[2][c] - numQueEuEsqueciONOME2 * matriz[1][c]
    
-   
+
 for l in range(0, L):
     for c in range(0, C):
-        matriz.round(decimals=0, out=None)
         print(f'[{matriz[l][c]:^9}]', end='')
     print()
