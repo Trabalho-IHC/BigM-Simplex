@@ -45,15 +45,17 @@ for l in range(0, L):
     print()
 print("////////////////////////////////////////////")
 
-
+numQueEuEsqueciONOME1 = matriz[1][1]
+numQueEuEsqueciONOME2 = matriz[2][1] 
 
 for c in range(0, C):
-    matriz[0][c] = matriz[0][c] - matriz[0][1]
-    matriz[2][c] = matriz[2][c] - bigM * matriz[1][c]
-
-
-
+    matriz[1][c] = matriz[1][c] / numQueEuEsqueciONOME1
+    matriz[0][c] = matriz[0][c] - matriz[0][1] * matriz[1][0]
+    matriz[2][c] = matriz[2][c] - numQueEuEsqueciONOME2 * matriz[1][c]
+   
+   
 for l in range(0, L):
     for c in range(0, C):
+        round(matriz[l][c], 2)
         print(f'[{matriz[l][c]:^9}]', end='')
     print()
