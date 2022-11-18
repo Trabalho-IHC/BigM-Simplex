@@ -1,4 +1,4 @@
-
+import numpy as np
 matriz = []
 L = int(input("Digite o número de linhas:"))
 C = int(input("Digite o número de colunas:"))
@@ -57,6 +57,6 @@ for c in range(0, C):
    
 for l in range(0, L):
     for c in range(0, C):
-        round(matriz[l][c], 2)
+        matriz.round(decimals=0, out=None)
         print(f'[{matriz[l][c]:^9}]', end='')
     print()
