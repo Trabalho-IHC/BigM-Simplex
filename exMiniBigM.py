@@ -48,14 +48,15 @@ for l in range(0, L):
 
 print("\n-------------------------------\n")
 
-celulaTravadaL1 = matriz[1][1]
-celulaTravadaL2 = matriz[2][1] 
-celulaTravadaL3 = matriz[0][1]
+celulaTravadaL1_1 = matriz[0][1]
+celulaTravadaL2_1 = matriz[1][1]
+celulaTravadaL3_1 = matriz[2][1] 
+
 
 for c in range(0, C):
-    matriz[1][c] = round(matriz[1][c] / celulaTravadaL1, 1)
-    matriz[0][c] = round(matriz[0][c] - celulaTravadaL3 * matriz[1][c], 1)
-    matriz[2][c] = round(matriz[2][c] - celulaTravadaL2 * matriz[1][c], 1)
+    matriz[1][c] = round(matriz[1][c] / celulaTravadaL2_1, 1)
+    matriz[0][c] = round(matriz[0][c] - celulaTravadaL1_1 * matriz[1][c], 1)
+    matriz[2][c] = round(matriz[2][c] - celulaTravadaL3_1 * matriz[1][c], 1)
    
    
 for l in range(0, L):
@@ -66,5 +67,26 @@ for l in range(0, L):
 
 print("\n-------------------------------\n")
 
+celulaTravadaL1_2 = matriz[0][0]
+celulaTravadaL2_2 = matriz[1][0]
+celulaTravadaL3_2 = matriz[2][0] 
 
+for c in range(0, C):
+    matriz[0][c] = round(matriz[0][c] / celulaTravadaL1_2, 1)
+    matriz[1][c] = round(matriz[1][c] - celulaTravadaL2_2 * matriz[0][c], 1)
+    matriz[2][c] = round(matriz[2][c] - celulaTravadaL3_2 * matriz[0][c], 1)
 
+for l in range(0, L):
+    for c in range(0, C):
+        print(f'[{matriz[l][c]:^13}]', end='')
+    print()
+#printarMatriz(L, C, matriz)
+
+print("\n-------------------------------\n")
+
+x1 = matriz[0][5]
+x2 = matriz[1][5]
+z = ((matriz[2][5]) * (-1))
+print("x1 = ",x1)
+print("x2 = ",x2)
+print("z = ",z)
