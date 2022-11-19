@@ -10,19 +10,19 @@ for l in range(0, L):
 
 for l in range(0, L):
     for c in range(0, C):
-        print(f'[{matriz[l][c]:^5}]', end='')
+        print(f'[{matriz[l][c]:^13}]', end='')
     print()
+print("\n-------------------------------\n")
 
-maior_linha = 0
-maior_coluna = 0
-maior = matriz[0][0]
-for lin in range(L):
-    for col in range(C):        
-        if maior < matriz[lin][col]:
-            maior = matriz[lin][col]
-            maior_linha = lin
-            maior_coluna = col
+ultimaLinha = []
+for c in range(0, C):
+  ultimaLinha.append(matriz[-1][c])
 
-print('linha do maior: {}\ncoluna do maior: {}'.format(maior_linha, maior_coluna))
+print(ultimaLinha)
 
-           
+listaBigM = []
+for c in range(0, C):
+  if ultimaLinha[c] > 9999:
+     
+
+
