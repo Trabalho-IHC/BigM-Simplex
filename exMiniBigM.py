@@ -38,8 +38,6 @@ bigM = matriz[maior_linha][maior_coluna]
 for c in range(0, C):
     matriz[2][c] = int(matriz[2][c] - bigM * matriz[1][c])
 
-bigM = 0
-bigM = matriz[2][1]
 
 for l in range(0, L):
     for c in range(0, C):
