@@ -1,3 +1,9 @@
+# def printarMatriz(L, C, matriz):
+#     for l in range(0, L):
+#         for c in range(0, C):
+#             print(f'[{matriz[l][c]:^13}]', end='')
+#     print()
+# print("\n-------------------------------\n")
 matriz = []
 L = int(input("Digite o número de linhas:"))
 C = int(input("Digite o número de colunas:"))
@@ -13,7 +19,6 @@ for l in range(0, L):
         print(f'[{matriz[l][c]:^13}]', end='')
     print()
 print("\n-------------------------------\n")
-
 
 # ultimaLinha = []
 # for c in range(0, C):
@@ -32,8 +37,26 @@ def procura_big_m1():
             return matriz[-1].index(bigM) #retorna coluna onde está o valor
 
 
+def calc_coluna_pivo(): #eu nao sei se essa coluna se chama coluna pivo, mas é a coluna q nois pega pra fazer as conta
+    menor_coluna = 0
+    menor_posicao = matriz[-1][0]
+    for c in range(C):
+        if matriz[-1][c] != matriz[-1][-1]:
+            if menor_posicao < matriz[-1][c]:    
+                menor_posicao = matriz[-1][c]
+                return c
+
+#calcula pp e verifica qual menor valor
+#ARRUMAR: PRECISA PEGAR QUAL POSIÇÃO ESTA ESSE MENOR VALOR, Q SERÁ IGUAL AO NUMERO DA LINHA NA MATRIZ
+def calc_pp(): 
+    lista_pp = []
+    for l in range(0, L):
+        lista_pp.append(matriz[l][-1] / matriz[l][calc_coluna_pivo()])
+    menor_valor_pp = min(lista_pp)
+    return menor_valor_pp
+
 for c in range(0, C):
-    matriz[2][c] = int(matriz[2][c] - matriz[-1][procura_big_m1()] * matriz[1][c])
+    matriz[-1][c] = int(matriz[-1][c] - matriz[-1][procura_big_m1()] * matriz[1][c])
 
 
 for l in range(0, L):
