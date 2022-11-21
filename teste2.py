@@ -20,16 +20,6 @@ for l in range(0, L):
     print()
 print("\n-------------------------------\n")
 
-# ultimaLinha = []
-# for c in range(0, C):
-#   ultimaLinha.append(matriz[-1][c])
-
-# print(ultimaLinha)
-
-# listaBigM = []
-# for c in range(0, C):
-#   if ultimaLinha[c] > 9999:
-
 def procura_big_m1():
     for c in range (0, C):
         if matriz[-1][c] > 99998:
@@ -37,26 +27,41 @@ def procura_big_m1():
             return matriz[-1].index(bigM) #retorna coluna onde está o valor
 
 
-def calc_coluna_pivo(): #eu nao sei se essa coluna se chama coluna pivo, mas é a coluna q nois pega pra fazer as conta
-    menor_coluna = 0
+#eu nao sei se essa coluna se chama coluna pivo, mas é a coluna q nois pega pra fazer as conta
+def calc_coluna_pivo(): 
+    ultima_posicao = matriz[-1][-1].index()
     menor_posicao = matriz[-1][0]
+    coluna = 0 #só pra printar no console pra ver o valor
     for c in range(C):
-        if matriz[-1][c] != matriz[-1][-1]:
-            if menor_posicao < matriz[-1][c]:    
-                menor_posicao = matriz[-1][c]
-                return c
+        if matriz[-1][c] < 0:
+            if matriz[-1][c] != matriz[-1][-1]:
+                if menor_posicao < matriz[-1][c]:    
+                    menor_posicao = matriz[-1][c]
+                    coluna = c
+                    return coluna
+    print("calculo da coluna pivo: ", coluna)
 
 #calcula pp e verifica qual menor valor
-#ARRUMAR: PRECISA PEGAR QUAL POSIÇÃO ESTA ESSE MENOR VALOR, Q SERÁ IGUAL AO NUMERO DA LINHA NA MATRIZ
 def calc_pp(): 
     lista_pp = []
+    menor_valor_pp = 0
+    index_menor_valor_pp = 0
     for l in range(0, L):
-        lista_pp.append(matriz[l][-1] / matriz[l][calc_coluna_pivo()])
+        if not l == 2: #se chegar na ultima linha ele é pra sair do for
+            if matriz[l][-1] == 0:
+                lista_pp.append(999999)
+            else:
+                lista_pp.append(matriz[l][-1] / matriz[l][calc_coluna_pivo()])
     menor_valor_pp = min(lista_pp)
-    return menor_valor_pp
+    index_menor_valor_pp = lista_pp.index(menor_valor_pp)
+    print("calc_pp - lista_pp: ", lista_pp)
+    print("calc_pp - menor valor pp: ", menor_valor_pp)
+    print("calc_pp - index menor valor: ", index_menor_valor_pp)
+    return index_menor_valor_pp
+
 
 for c in range(0, C):
-    matriz[-1][c] = int(matriz[-1][c] - matriz[-1][procura_big_m1()] * matriz[1][c])
+    matriz[-1][c] = int(matriz[-1][c] - matriz[-1][procura_big_m1()] * matriz[calc_pp()][c])
 
 
 for l in range(0, L):
