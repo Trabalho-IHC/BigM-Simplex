@@ -15,6 +15,12 @@ def procura_big_m(C, matriz):
             bigM = matriz[-1][c]
             return matriz[-1].index(bigM) #retorna coluna onde está o valor do bigM
 
+def bigM(C, matriz):
+    for c in range (0, C):
+        if matriz[-1][c] > 99998:
+            bigM = matriz[-1][c]
+            return bigM
+
 #RETORNA LINHA ONDE ESTA O PIVO DO BIGM
 def calc_linha_pivo_bigM(L, C, matriz):
     lista = []
@@ -26,6 +32,18 @@ def calc_linha_pivo_bigM(L, C, matriz):
         if lista[l] == 1:
             linha = lista.index(lista[l])   
     return linha
+
+#zera variavel artificial na linha do z e faz a operação na linha do z, distribuindo o bigM pela matriz
+def zera_var_artific_linha_z(L, C, matriz):
+    big_M = bigM(C, matriz)
+    coluna_bigM = procura_big_m(C, matriz)
+    linha_pivo_bigM = calc_linha_pivo_bigM(L, C, matriz)
+    for c in range(0, C):
+        if matriz[-1][c] == big_M:
+            matriz[-1][c] = int(matriz[-1][c] - matriz[-1][coluna_bigM] * matriz[linha_pivo_bigM][c])
+        elif not matriz[-1][c] == big_M:
+            matriz[-1][c] = int(matriz[-1][c] - matriz[-1][procura_big_m(C, matriz)] * matriz[linha_pivo_bigM][c])
+    return matriz  
 
 
 #CALCULA COLUNA PIVO PARA ESCALONAMENTOS
