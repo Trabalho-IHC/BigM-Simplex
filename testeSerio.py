@@ -31,9 +31,10 @@ def calc_pp():
     #return 1
 
 
+#PRECISA FAZER CALCULO NA CELULA DO BIGM PRIMEIRO
 #FOR PARA ZERAR BIGM
 for c in range(0, C):
-    matriz[-1][c] = int(matriz[-1][c] - matriz[-1][funcoes.procura_big_m(C, matriz)] * matriz[1][c])#matriz[linha do pivo][c]
+    matriz[-1][c] = int(matriz[-1][c] - matriz[-1][funcoes.procura_big_m(C, matriz)] * matriz[funcoes.calc_linha_pivo_bigM(L, C, matriz)][c])
 
 
 funcoes.show_matrix(L, C, matriz)

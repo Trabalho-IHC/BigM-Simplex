@@ -15,6 +15,17 @@ def procura_big_m(C, matriz):
             bigM = matriz[-1][c]
             return matriz[-1].index(bigM) #retorna coluna onde está o valor do bigM
 
+#RETORNA LINHA ONDE ESTA O PIVO DO BIGM
+def calc_linha_pivo_bigM(L, C, matriz):
+    lista = []
+    colBigM = procura_big_m(C, matriz)
+    linha = 0
+    for l in range (0, L-1):
+        lista.append(matriz[l][colBigM])
+    for l in range(len(lista)):
+        if lista[l] == 1:
+            linha = lista.index(lista[l])   
+    return linha
 
 
 #CALCULA COLUNA PIVO PARA ESCALONAMENTOS
