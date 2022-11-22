@@ -15,6 +15,8 @@ def procura_big_m(C, matriz):
             bigM = matriz[-1][c]
             return matriz[-1].index(bigM) #retorna coluna onde está o valor do bigM
 
+
+
 #CALCULA COLUNA PIVO PARA ESCALONAMENTOS
 def calc_coluna_pivo(C, matriz): 
     #ultima_posicao = matriz[-1][-1].index()

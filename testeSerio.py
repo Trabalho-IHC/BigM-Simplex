@@ -13,19 +13,6 @@ for l in range(0, L):
 funcoes.show_matrix(L, C, matriz)
 
 
-# #CALCULA COLUNA PIVO PARA ESCALONAMENTOS
-# def calc_coluna_pivo(): 
-#     #ultima_posicao = matriz[-1][-1].index()
-#     menor_valor = matriz[-1][0]
-#     coluna = 0
-#     for c in range(0, C):
-#         if matriz[-1][c] != matriz[-1][-1]: #aqui precisa pegar posição ao inves do valor
-#             if matriz[-1][c] < 0:
-#                 if matriz[-1][c] < menor_valor:
-#                     menor_valor = matriz[-1][c]
-#                     coluna = c
-#     return coluna
-
 #calcula processo de producao e verifica qual menor valor
 def calc_pp(): 
     lista_pp = []
