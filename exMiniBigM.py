@@ -1,10 +1,3 @@
-#TENTAR FAZER FUNCAO Q IMPRIME MATRIZ
-# def printarMatriz(L, C, matriz):
-#     for l in range(0, L):
-#         for c in range(0, C):
-#             print(f'[{matriz[l][c]:^13}]', end='')
-#     print()
-
 matriz = []
 L = int(input("Digite o número de linhas:"))
 C = int(input("Digite o número de colunas:"))

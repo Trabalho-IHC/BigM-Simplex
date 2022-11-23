@@ -1,11 +1,9 @@
-def show_matriz(L, C, matriz):
-  print("\n")
-  for l in range(0, L):
-    for c in range(0, C):
-        print(f'[{matriz[l][c]:^13}]', end='')
-    print()
-print("-------------------------------")
-print("\n")
+def show_matriz(L, matriz):
+    for l in range(0, L):
+        print(matriz[l], end='\n')
+
+    print("-------------------------------")
+
 
 #FUNCAO QUE RETORNA COLUNA ONDE ESTÁ O BIGM
 #RETORNA PRIMEIRO RESULTADO QUE ENCONTRAR

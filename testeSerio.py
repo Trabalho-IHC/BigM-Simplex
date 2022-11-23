@@ -1,30 +1,17 @@
 import funcoes
 
-# matriz = []
-# L = int(input("Digite o número de linhas:"))
-# C = int(input("Digite o número de colunas:"))
-# for i in range(L):
-#     matriz.append([])
-
-
-# for l in range(0, L):
-#     for c in range(0, C):
-#         matriz[l].append(int(input(f"Digite um valor para [{l},{c}]: ")))
 matriz = []
-matriz.append([[2],[1],[1],[0],[0],[5000]])
-matriz.append([[4],[5],[0],[-1],[1],[13000]])
-matriz.append([[3],[7],[0],[0],[999999],[0]])
-L = 2
-C = 5
-for l in range(0, 3):
-        print(matriz[l], end='\n')
+matriz.append([2,1,1,0,0,5000])
+matriz.append([4,5,0,-1,1,13000])
+matriz.append([3,7,0,0,999999,0])
+L = 3
+C = 6
 
-#funcoes.show_matriz(L, C, matriz)
+funcoes.show_matriz(L, matriz)
 
 funcoes.zera_var_artific_linha_z(L, C, matriz)
-for l in range(0, 3):
-        print(matriz[l], end='\n')
-#funcoes.show_matriz(L, C, matriz)
+
+funcoes.show_matriz(L, matriz)
 
 
 # #ARRUMAR 
