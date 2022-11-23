@@ -1,4 +1,4 @@
-def show_matrix(L, C, matriz):
+def show_matriz(L, C, matriz):
   print("\n")
   for l in range(0, L):
     for c in range(0, C):
@@ -52,9 +52,26 @@ def calc_coluna_pivo(C, matriz):
     menor_valor = matriz[-1][0]
     coluna = 0
     for c in range(0, C):
-        if matriz[-1][c] != matriz[-1][-1]: #aqui precisa pegar posição ao inves do valor
+        if matriz[-1][c] != matriz[-1][-1]: #aqui precisa pegar posição ao inves do valor - precisa?
             if matriz[-1][c] < 0:
                 if matriz[-1][c] < menor_valor:
                     menor_valor = matriz[-1][c]
                     coluna = c
     return coluna
+
+#calcula processo de producao e verifica qual menor valor
+#retorna index da linha pivo
+def linha_pivo(L, C, matriz): 
+    lista_pp = []
+    menor_valor_pp = 0
+    index_menor_valor_pp = 0
+    coluna_pivo = calc_coluna_pivo(C, matriz)
+    for l in range(0, L-1):
+        if matriz[l][coluna_pivo] == 0:
+            lista_pp.append(999999)
+        else :
+            lista_pp.append(matriz[l][-1] / matriz[l][coluna_pivo])
+    
+    menor_valor_pp = min(lista_pp)
+    index_menor_valor_pp = int(lista_pp.index(menor_valor_pp))
+    return index_menor_valor_pp

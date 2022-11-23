@@ -10,27 +10,35 @@ for l in range(0, L):
     for c in range(0, C):
         matriz[l].append(int(input(f"Digite um valor para [{l},{c}]: ")))
 
-funcoes.show_matrix(L, C, matriz)
-
-
-#calcula processo de producao e verifica qual menor valor
-def calc_pp(): 
-    lista_pp = []
-    menor_valor_pp = 0
-    index_menor_valor_pp = 0
-    coluna_pivo = funcoes.calc_coluna_pivo(C, matriz)
-    for l in range(0, L-1):
-        if matriz[l][-1] == 0:
-            lista_pp.append(999999)
-        else:
-            lista_pp.append(matriz[l][-1] / matriz[l][coluna_pivo])
-    
-    menor_valor_pp = min(lista_pp)
-    index_menor_valor_pp = int(lista_pp.index(menor_valor_pp))
-    return index_menor_valor_pp
-
+funcoes.show_matriz(L, C, matriz)
 
 funcoes.zera_var_artific_linha_z(L, C, matriz)
 
-funcoes.show_matrix(L, C, matriz)
+funcoes.show_matriz(L, C, matriz)
+
+
+#ARRUMAR 
+def escalonamento():
+    linha_pivo = funcoes.linha_pivo(L, C, matriz)
+    coluna_pivo = funcoes.calc_coluna_pivo(C, matriz)
+    # matriz_antiga = []
+    # matriz_antiga = matriz
+    for l in range(0, L):
+        if l == linha_pivo:
+            for c in range(0, C):
+                matriz[l][c] = matriz[l][c] / matriz[l][coluna_pivo] 
+
+    for l in range(0, L):
+        if l != linha_pivo:
+            for c in range(0, C):
+                print("antes da operacao ", matriz[l][c])
+                print("matriz[l][coluna_pivo] ", matriz[l][coluna_pivo])
+                print("matriz[linha_pivo()][calc_coluna_pivo()]", matriz[funcoes.linha_pivo(L, C, matriz)][funcoes.calc_coluna_pivo(C, matriz)])
+                matriz[l][c] = matriz[l][c] - matriz[l][coluna_pivo] * matriz[funcoes.linha_pivo(L, C, matriz)][funcoes.calc_coluna_pivo(C, matriz)]
+                print("depois da operacao ", matriz[l][c])
+                print("-------------------")   
+    return matriz  
+
+escalonamento()
+funcoes.show_matriz(L, C, matriz)
 
