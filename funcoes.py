@@ -38,9 +38,13 @@ def zera_var_artific_linha_z(L, C, matriz):
     linha_pivo_bigM = calc_linha_pivo_bigM(L, C, matriz)
     for c in range(0, C):
         if matriz[-1][c] == big_M:
+            print('antes 1°if -> matriz[-1][c] ', matriz[-1][c])
             matriz[-1][c] = int(matriz[-1][c] - matriz[-1][coluna_bigM] * matriz[linha_pivo_bigM][c])
+            print('depois 1°if -> matriz[-1][c] ', matriz[-1][c])
         elif not matriz[-1][c] == big_M:
-            matriz[-1][c] = int(matriz[-1][c] - matriz[-1][procura_big_m(C, matriz)] * matriz[linha_pivo_bigM][c])
+            print('antes 2°if -> matriz[-1][c] ', matriz[-1][c])
+            matriz[-1][c] = int(matriz[-1][c] - big_M * matriz[linha_pivo_bigM][c])
+            print('depois 2°if -> matriz[-1][c] ', matriz[-1][c])
     return matriz  
 
 
@@ -67,7 +71,9 @@ def linha_pivo(L, C, matriz):
     for l in range(0, L-1):
         if matriz[l][coluna_pivo] == 0:
             lista_pp.append(999999)
-        else :
+        elif matriz[l][-1] / matriz[l][coluna_pivo] < 0:
+            lista_pp.append(999999)
+        else:    
             lista_pp.append(matriz[l][-1] / matriz[l][coluna_pivo])
     
     menor_valor_pp = min(lista_pp)

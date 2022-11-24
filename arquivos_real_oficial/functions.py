@@ -28,7 +28,7 @@ def calc_linha_pivo_bigM(L, C, matriz):
         lista.append(matriz[l][colBigM])
     for l in range(len(lista)):
         if lista[l] == 1:
-            linha = lista.index(lista[l])   
+            linha = lista.index(lista[l])   #colocar abaixo do linha = linsta.index o return linha
     return linha
 
 #zera variavel artificial na linha do z e faz a operação na linha do z, distribuindo o bigM pela matriz
@@ -40,7 +40,7 @@ def zera_var_artific_linha_z(L, C, matriz):
         if matriz[-1][c] == big_M:
             matriz[-1][c] = int(matriz[-1][c] - matriz[-1][coluna_bigM] * matriz[linha_pivo_bigM][c])
         elif not matriz[-1][c] == big_M:
-            matriz[-1][c] = int(matriz[-1][c] - matriz[-1][procura_big_m(C, matriz)] * matriz[linha_pivo_bigM][c])
+            matriz[-1][c] = int(matriz[-1][c] - big_M * matriz[linha_pivo_bigM][c])
     return matriz  
 
 
