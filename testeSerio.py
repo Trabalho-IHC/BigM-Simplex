@@ -13,29 +13,12 @@ funcoes.zera_var_artific_linha_z(L, C, matriz)
 
 funcoes.show_matriz(L, matriz)
 
+funcoes.escalonamento(L, C, matriz)
 
-# #ARRUMAR 
-# def escalonamento():
-#     linha_pivo = funcoes.linha_pivo(L, C, matriz)
-#     coluna_pivo = funcoes.calc_coluna_pivo(C, matriz)
-#     # matriz_antiga = []
-#     # matriz_antiga = matriz
-#     for l in range(0, L):
-#         if l == linha_pivo:
-#             for c in range(0, C):
-#                 matriz[l][c] = matriz[l][c] / matriz[l][coluna_pivo] 
+funcoes.show_matriz(L, matriz)
 
-#     for l in range(0, L):
-#         if l != linha_pivo:
-#             for c in range(0, C):
-#                 print("antes da operacao ", matriz[l][c])
-#                 print("matriz[l][coluna_pivo] ", matriz[l][coluna_pivo])
-#                 print("matriz[linha_pivo()][calc_coluna_pivo()]", matriz[funcoes.linha_pivo(L, C, matriz)][funcoes.calc_coluna_pivo(C, matriz)])
-#                 matriz[l][c] = matriz[l][c] - matriz[l][coluna_pivo] * matriz[funcoes.linha_pivo(L, C, matriz)][funcoes.calc_coluna_pivo(C, matriz)]
-#                 print("depois da operacao ", matriz[l][c])
-#                 print("-------------------")   
-#     return matriz  
+funcoes.escalonamento(L, C, matriz)
 
-# escalonamento()
-#funcoes.show_matriz(L, C, matriz)
+funcoes.show_matriz(L, matriz)
 
+funcoes.retorna_z(L, matriz)

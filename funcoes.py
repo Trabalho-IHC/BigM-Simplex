@@ -73,3 +73,31 @@ def linha_pivo(L, C, matriz):
     menor_valor_pp = min(lista_pp)
     index_menor_valor_pp = int(lista_pp.index(menor_valor_pp))
     return index_menor_valor_pp
+
+#Escalonamento
+def escalonamento(L, C, matriz):
+    lin_pivo = linha_pivo(L, C, matriz)
+    col_pivo = calc_coluna_pivo(C, matriz)
+    
+    cels_travadas = []
+
+    for l in range(0, L):
+        cels_travadas.append(matriz[l][col_pivo])
+
+    for l in range(0, L):
+        if l == lin_pivo:
+            for c in range(0, C):
+                matriz[l][c] = round(matriz[l][c] / cels_travadas[l], 1) 
+
+    for l in range(0, L):
+        if l != lin_pivo:
+            for c in range(0, C):
+                    matriz[l][c] = round(matriz[l][c] - cels_travadas[l] * matriz[lin_pivo][c], 1)
+    return matriz
+
+def retorna_z(C, matriz):
+    z = 0
+    for c in range(0, C):
+        if c == 1:
+            z = (matriz[-1][-1]) * (-1)
+    return print("FO = ", z)
