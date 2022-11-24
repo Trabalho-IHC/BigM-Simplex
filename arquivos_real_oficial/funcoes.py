@@ -99,6 +99,6 @@ def retorna_z(C, matriz):
     z = 0
     for c in range(0, C):
         if matriz[-1][c] == 0:
-            if c <= 1:
+            if c <= 20:
                 z = (matriz[-1][-1]) * (-1)
     return print("FO = ", z)  
