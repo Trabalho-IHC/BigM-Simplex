@@ -11,7 +11,7 @@ def procura_big_m(C, matriz):
     for c in range (0, C):
         if matriz[-1][c] > 99998:
             bigM = matriz[-1][c]
-            return matriz[-1].index(bigM) #retorna coluna onde está o valor do bigM
+            return matriz[-1].index(bigM)
 
 def bigM(C, matriz):
     for c in range (0, C):
@@ -28,7 +28,7 @@ def calc_linha_pivo_bigM(L, C, matriz):
         lista.append(matriz[l][colBigM])
     for l in range(len(lista)):
         if lista[l] == 1:
-            linha = lista.index(lista[l])   #colocar abaixo do linha = linsta.index o return linha
+            linha = lista.index(lista[l]) 
     return linha
 
 #zera variavel artificial na linha do z e faz a operação na linha do z, distribuindo o bigM pela matriz
@@ -46,11 +46,10 @@ def zera_var_artific_linha_z(L, C, matriz):
 
 #CALCULA COLUNA PIVO PARA ESCALONAMENTOS
 def calc_coluna_pivo(C, matriz): 
-    #ultima_posicao = matriz[-1][-1].index()
     menor_valor = matriz[-1][0]
     coluna = 0
     for c in range(0, C):
-        if matriz[-1][c] != matriz[-1][-1]: #aqui precisa pegar posição ao inves do valor - precisa?
+        if matriz[-1][c] != matriz[-1][-1]:
             if matriz[-1][c] < 0:
                 if matriz[-1][c] < menor_valor:
                     menor_valor = matriz[-1][c]
@@ -105,7 +104,22 @@ def retorna_z(C, matriz):
         if matriz[-1][c] == 0:
             if c <= 20:
                 z = (matriz[-1][-1]) * (-1)
-
     return print("FO = ", z)  
 
-#onde for variavel do problema, tem que ter 1 em alguma linha e 1 na ultima coluna
+
+def verifica_valor_negativo_linha_z(matriz):
+    lista_val_z = []
+    for c in range(0, 19):
+        lista_val_z.append(matriz[-1][c])
+    for c in range(len(lista_val_z)):
+        if lista_val_z[c] < 0:
+            return True
+
+
+# def caminho(L, matriz):
+#     colunas_caminho = []
+#     for c in range(1, 3):
+#         for l in range(0, L):
+#             if matriz[l][c] == 1 and matriz[l][-1] == 1: 
+#                 colunas_caminho.append(c)
+#     return print(colunas_caminho)     
