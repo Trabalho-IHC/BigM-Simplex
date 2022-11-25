@@ -1,4 +1,4 @@
-import funcoes
+import funcoes as funcoes
 
 matriz = []
 matriz.append([1,0,1,0,0,4])

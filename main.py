@@ -157,21 +157,9 @@ matriz.append([10, 18, 15, 9, 10, 16, 11, 5, 18, 16, 12, 14, 15, 11, 12, 8, 9, 5
 for a in range(10):
     functions.zera_var_artific_linha_z(L, C, matriz)
 
-# ATE AQUI TA FUNCIONANDO
-z = 0
-
-# for c in range(0, C):
-#   if matriz[-1][c] == 0:
-#     if c == 19:
-#       z = (matriz[-1][-1]) * (-1)
-#   else:
-#
 for c in range(0, C):
-        if c == 0:
-          print('\n')
-            #functions.show_matriz(L, matriz)
-        if c < 9:
-            functions.show_matriz(L, matriz)
-            functions.escalonamento(L, C, matriz)
+    if c < 9:
+        #functions.show_matriz(L, matriz)
+        functions.escalonamento(L, C, matriz)
 
 functions.retorna_z(C, matriz)
