@@ -65,9 +65,11 @@ def linha_pivo(L, C, matriz):
     index_menor_valor_pp = 0
     coluna_pivo = calc_coluna_pivo(C, matriz)
     for l in range(0, L-1):
-        if matriz[l][coluna_pivo] == 0:
+        if (matriz[l][coluna_pivo] == 0) or (matriz[l][coluna_pivo] < 0):
             lista_pp.append(999999)
-        else :
+        elif matriz[l][-1] / matriz[l][coluna_pivo] < 0:
+            lista_pp.append(999999)
+        else:
             lista_pp.append(matriz[l][-1] / matriz[l][coluna_pivo])
     
     menor_valor_pp = min(lista_pp)
@@ -87,12 +89,14 @@ def escalonamento(L, C, matriz):
     for l in range(0, L):
         if l == lin_pivo:
             for c in range(0, C):
-                matriz[l][c] = round(matriz[l][c] / cels_travadas[l], 1) 
+                matriz[l][c] = round(matriz[l][c] / cels_travadas[l], 5) 
 
     for l in range(0, L):
         if l != lin_pivo:
             for c in range(0, C):
-                    matriz[l][c] = round(matriz[l][c] - cels_travadas[l] * matriz[lin_pivo][c], 1)
+                matriz[l][c] = round(matriz[l][c] - cels_travadas[l] * matriz[lin_pivo][c], 5)
+
+
     return matriz
 
 def retorna_z(C, matriz):
@@ -101,4 +105,7 @@ def retorna_z(C, matriz):
         if matriz[-1][c] == 0:
             if c <= 20:
                 z = (matriz[-1][-1]) * (-1)
+
     return print("FO = ", z)  
+
+#onde for variavel do problema, tem que ter 1 em alguma linha e 1 na ultima coluna
