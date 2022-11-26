@@ -1,7 +1,6 @@
 def show_matriz(L, matriz):
     for l in range(0, L):
         print(matriz[l], end='\n')
-
     print("-------------------------------")
 
 
@@ -99,11 +98,7 @@ def escalonamento(L, C, matriz):
     return matriz
 
 def retorna_z(C, matriz):
-    z = 0
-    for c in range(0, C):
-        if matriz[-1][c] == 0:
-            if c <= 20:
-                z = (matriz[-1][-1]) * (-1)
+    z = (matriz[-1][-1]) * (-1)
     return print("FO = ", z)  
 
 

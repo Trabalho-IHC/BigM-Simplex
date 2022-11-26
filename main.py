@@ -11,6 +11,7 @@ matriz = mtrz.export_matriz()
 linhas = 0
 colunas = 0
 
+
 for c in range(len(matriz[-1])):
     colunas += 1
 
