@@ -4,13 +4,19 @@ def show_matriz(L, matriz):
     print("-------------------------------")
 
 
-#FUNCAO QUE RETORNA COLUNA ONDE ESTÁ O BIGM
-#RETORNA PRIMEIRO RESULTADO QUE ENCONTRAR
+#retorna coluna do bigM
+#retorna primeiro resultado que encontrar
 def procura_big_m(C, matriz):
     for c in range (0, C):
         if matriz[-1][c] > 99998:
             bigM = matriz[-1][c]
             return matriz[-1].index(bigM)
+
+def existe_bigM(C, matriz):
+    for c in range (0, C):
+        if matriz[-1][c] > 99998:
+            return True
+
 
 def bigM(C, matriz):
     for c in range (0, C):
@@ -18,13 +24,13 @@ def bigM(C, matriz):
             bigM = matriz[-1][c]
             return bigM
 
-#RETORNA LINHA ONDE ESTA O PIVO DO BIGM
+#retorna linha onde está o pivô do bigM
 def calc_linha_pivo_bigM(L, C, matriz):
     lista = []
     colBigM = procura_big_m(C, matriz)
     linha = 0
     for l in range (0, L-1):
-        lista.append(matriz[l][colBigM])
+        lista.append(matriz[l][colBigM]) #insere na lista todos os valores da coluna do bigM
     for l in range(len(lista)):
         if lista[l] == 1:
             linha = lista.index(lista[l]) 
@@ -43,7 +49,8 @@ def zera_var_artific_linha_z(L, C, matriz):
     return matriz  
 
 
-#CALCULA COLUNA PIVO PARA ESCALONAMENTOS
+#calcula coluna pivo para os escalonamentos
+#menor valor na linha do z
 def calc_coluna_pivo(C, matriz): 
     menor_valor = matriz[-1][0]
     coluna = 0
@@ -56,6 +63,7 @@ def calc_coluna_pivo(C, matriz):
     return coluna
 
 #calcula processo de producao e verifica qual menor valor
+#valor do b dividido pelo valor na mesma linha e na coluna pivo
 #retorna index da linha pivo
 def linha_pivo(L, C, matriz): 
     lista_pp = []
@@ -74,7 +82,7 @@ def linha_pivo(L, C, matriz):
     index_menor_valor_pp = int(lista_pp.index(menor_valor_pp))
     return index_menor_valor_pp
 
-#Escalonamento
+
 def escalonamento(L, C, matriz):
     lin_pivo = linha_pivo(L, C, matriz)
     col_pivo = calc_coluna_pivo(C, matriz)
@@ -82,7 +90,7 @@ def escalonamento(L, C, matriz):
     cels_travadas = []
 
     for l in range(0, L):
-        cels_travadas.append(matriz[l][col_pivo])
+        cels_travadas.append(matriz[l][col_pivo]) #joga valores da coluna pivo aqui
 
     for l in range(0, L):
         if l == lin_pivo:
@@ -104,7 +112,7 @@ def retorna_z(C, matriz):
 
 def verifica_valor_negativo_linha_z(matriz):
     lista_val_z = []
-    for c in range(0, 19):
+    for c in range(0, 19): 
         lista_val_z.append(matriz[-1][c])
     for c in range(len(lista_val_z)):
         if lista_val_z[c] < 0:

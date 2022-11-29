@@ -17,15 +17,12 @@ for c in range(len(matriz[-1])):
 
 linhas = len(matriz)
 
-def verifica_escalonamento():
-    for a in range(0, colunas):
-        if functions.verifica_valor_negativo_linha_z(matriz):
-            functions.escalonamento(linhas, colunas, matriz)
-    return functions.retorna_z(colunas, matriz)        
-        
-
-for a in range(10):
+while functions.existe_bigM(colunas, matriz):
     functions.zera_var_artific_linha_z(linhas, colunas, matriz)
 
-verifica_escalonamento()
+while functions.verifica_valor_negativo_linha_z(matriz):
+    functions.escalonamento(linhas, colunas, matriz)
+
+functions.retorna_z(colunas, matriz)
+
 #functions.show_matriz(linhas, matriz)
